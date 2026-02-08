@@ -16,7 +16,7 @@ resource "aws_instance" "webserver" {
 
 }
 
-resource "aws_security_group" "webserver_sg" {
+resource "aws_security_group" "webserversg" {
     
 
           ingress {
