@@ -1,5 +1,5 @@
 resource "aws_instance" "webserver" {
-    ami           = "ami-019715e0d74f695be"
+    ami           = "ami-0848881f2a3dcebd1"
     instance_type = "t2.micro"
     vpc_security_group_ids = ["sg-0f512ea37ba7d7f7a"] 
     key_name = "ubuntu"
