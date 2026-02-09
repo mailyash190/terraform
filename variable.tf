@@ -13,13 +13,13 @@ variable "keyname" {
 variable "sg" {
     default = "sg-054f85db2427ca0b3"
 } 
-variable "api_termination" {
-  default = true
-} 
+##variable "api_termination" { #for disabling API termination of the instance
+  ##default = true
+#} 
 
-variable "nosofinstances" {
-  default = 2
-}
+##variable "nosofinstances" {
+  ##default = 2
+##}
 
 
 #data types 
