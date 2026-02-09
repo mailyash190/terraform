@@ -11,7 +11,7 @@ variable "keyname" {
 }
 
 variable "sg" {
-    default = "sg-0be38400b55ebbe0c"
+    default = "sg-054f85db2427ca0b3"
 } 
 variable "api_termination" {
   default = true
