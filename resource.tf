@@ -1,22 +1,25 @@
 resource "aws_instance" "webserver" {
-    ami           = var.instanceami
-    instance_type = var.instancetype
-    vpc_security_group_ids = [var.sg,aws_security_group.webserversg.id , data.aws_security_group.sg_gui.id] 
-    key_name = var.keyname
-    count = var.number_of_instances
-    disable_api_termination = var.api_termination #instance cannot be terminated using API calls, it can only be terminated from the console
-
-    tags = {
-        Name = "WebServer-instance"
-        purpose = "learning terraform"
-    }
-    user_data = <<-EDF
+  #arguements
+  ami                    =  var.instanceami
+  instance_type          = var.instancetype
+  vpc_security_group_ids = [ var.sg, aws_security_group.webserversg.id , data.aws_security_group.sg_gui.id ] #cloudprovider_tfresourcegame.uniqueblockname.attribute
+  key_name               = var.keyname
+  #count = var.nosofinstances
+  disable_api_termination = var.api_termination
+  depends_on = [aws_security_group.webserversg]  #explicit dependency
+  tags = {
+    Name    = "webserver-instance"
+    purpose = "learning-terraform"
+  }
+  user_data = <<-EOF
                 #!/bin/bash
-                sudo apt update -y
-                sudo apt install nginx -y
-                EDF
+                sudo -i 
+                apt install apache2 -y
+                systemctl start apache2
+                EOF
+} 
 
-}
+
 
 resource "aws_security_group" "webserversg" {
     

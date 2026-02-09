@@ -3,20 +3,27 @@ variable "instanceami" {
 } 
 
 variable "instancetype" {
-  default     = "t3.micro"
-}
-
-variable "sg" {
-    default     = "sg-0f512ea37ba7d7f7a"
+   default = "t3.micro"
 }
 
 variable "keyname" {
-    default     = "ubuntu"
-}
-variable "api_termination" {
-    default = true
+   default = "ubuntu"
 }
 
-variable "number_of_instances" {
-    default = 2
+variable "sg" {
+    default = "sg-07f4a1e0551a112e8"
+} 
+variable "api_termination" {
+  default = true
+} 
+
+variable "nosofinstances" {
+  default = 2
 }
+
+
+#data types 
+#  1    =   number 
+#  "anup", "1" = string 
+#  true  = boolean 
+#  2.1 = float  
