@@ -1,4 +1,4 @@
-resource "aws_instance" "Webserver" {
+resource "aws_instance" "webserver" {
     ami           = var.instanceami
     instance_type = var.instancetype
     vpc_security_group_ids = [var.sg,aws_security_group.webserversg.id , data.aws_security_group.sg_gui.id] 
