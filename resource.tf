@@ -65,5 +65,12 @@ output "webserver_public_dns" {
 }
 
 output "webserver_instance_state" {
-  value = aws_instance.webserver.state 
+  value = aws_instance.webserver.instance_state 
+}
+output "webserver_sg_id" {
+  value = aws_security_group.webserversg.id
+}
+
+output "webserver_sg_arn" {
+  value = aws_security_group.webserversg.arn
 }
