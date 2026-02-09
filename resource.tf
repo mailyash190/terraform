@@ -1,8 +1,10 @@
-resource "aws_instance" "WebServer-instance" {
-    ami           = "ami-0848881f2a3dcebd1"
-    instance_type = "t2.micro"
-    vpc_security_group_ids = ["sg-0f512ea37ba7d7f7a"] 
-    key_name = "ubuntu"
+resource "aws_instance" "Webserver" {
+    ami           = var.instanceami
+    instance_type = var.instancetype
+    vpc_security_group_ids = [var.sg,aws_security_group.webserversg.id , data.aws_security_group.sg_gui.id] 
+    key_name = var.keyname
+    count = var.number_of_instances
+    disable_api_termination = var.api_termination #instance cannot be terminated using API calls, it can only be terminated from the console
 
     tags = {
         Name = "WebServer-instance"
@@ -41,3 +43,7 @@ resource "aws_security_group" "webserversg" {
             cidr_blocks = ["0.0.0.0/0"]
           }
 }
+
+data "aws_security_group" "sg_gui" {
+  name = "efs1"
+}   #data block to fetch the security group id of efs1 security group and use it in aws_instance resource block
