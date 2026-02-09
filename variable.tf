@@ -7,7 +7,7 @@ variable "instancetype" {
 }
 
 variable "keyname" {
-   default = "ubuntu"
+   default = "jenkins"
 }
 
 variable "sg" {
