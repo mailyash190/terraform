@@ -41,7 +41,7 @@ resource "aws_lb" "app_lb" {
 
 # from 41 to 47 target group be their And 48 vpc id be taken 
 resource "aws_lb_target_group" "tg" {
-  load_balancer_arn = aws_lb.app_lb.arn
+  load_balancer_arns = [aws_lb.app_lb.arn]
   name     = "simple-tg"
   port     = 80
   protocol = "HTTP"
