@@ -4,8 +4,7 @@ data "aws_vpc" "default" {
 
 data "aws_subnet" "default" {
     filter {
-        name   = "vpc-default"
-        values = [data.aws_vpc.default.id]
+          values = [data.aws_vpc.default.id]
     }
 }
 # infrastructure , auto-scaling group, load balancer, target group, listener, security group, launch template 
