@@ -36,7 +36,7 @@ resource "aws_lb" "app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_sg.id]
-  subnets            = [data.aws_subnet.default.id]
+  subnets            = [data.aws_subnets.default.id]
 }
 
 # from 41 to 47 target group be their And 48 vpc id be taken 
@@ -67,7 +67,7 @@ resource "aws_launch_template" "web_lt" {
 
   network_interfaces {
     security_groups = [aws_security_group.web_sg.id]
-    subnet_id       = data.aws_subnet.default.id
+    subnet_id       = data.aws_subnets.default.ids
   }
 
   user_data = base64encode(<<-EOF
