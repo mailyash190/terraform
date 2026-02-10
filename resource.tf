@@ -6,7 +6,7 @@ resource "aws_instance" "webserver" {
   key_name               = var.keyname
   #count = var.nosofinstances
   ##disable_api_termination = var.api_termination
-  ##depends_on = [aws_security_group.webserversg]  #explicit dependency
+  depends_on = [aws_security_group.webserversg]  #explicit dependency
   tags = {
     Name    = "webserver-instance"
     purpose = "learning-terraform"
