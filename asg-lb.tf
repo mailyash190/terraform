@@ -67,7 +67,7 @@ resource "aws_launch_template" "web_lt" {
 
   network_interfaces {
     security_groups = [aws_security_group.web_sg.id]
-    subnet_id       = data.aws_subnets.default.ids
+    subnets_id       = data.aws_subnets.default.ids
   }
 
   user_data = base64encode(<<-EOF
