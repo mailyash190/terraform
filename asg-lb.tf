@@ -86,7 +86,7 @@ resource "aws_autoscaling_group" "web_asg" {
   desired_capacity          = 2
   max_size                  = 2
   min_size                  = 1
-  vpc_zone_identifier       = [data.aws_subnet.default.id]
+  vpc_zone_identifier       = data.aws_subnets.default.ids
   target_group_arns         = [aws_lb_target_group.tg.arn]
   health_check_type        = "ELB"
   health_check_grace_period = 120
