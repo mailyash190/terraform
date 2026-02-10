@@ -91,7 +91,7 @@ resource "aws_autoscaling_group" "web_asg" {
   health_check_grace_period = 120
 
   launch_template {
-    id      = aws_launch_template.web_lt.id
+    id      = aws_launch_template.example.id
     version = "$Latest"
   }
   
