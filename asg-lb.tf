@@ -59,16 +59,15 @@ resource "aws_lb_listener" "listener" {
   }
 }
 
-resource "aws_launch_template" "web_lt" {
-  name_prefix   = "simple_template"
-  image_id      = var.instanceami
-  instance_type = var.instancetype
-  key_name      = var.keyname
+resource "aws_launch_template" "example" {
+    name_prefix = "simple_template"
+    image_id = "ami-0532be01f26a3de55" 
+    instance_type = "t2.micro" 
 
-  network_interfaces {
-    security_groups = [aws_security_group.web_sg.id]
-    subnet_id       = data.aws_subnets.default.ids
-  }
+    network_interfaces {
+      associate_public_ip_address = true 
+      security_groups = [aws_security_group.web_sg.id]
+    }
 
   user_data = base64encode(<<-EOF
               #!/bin/bash
