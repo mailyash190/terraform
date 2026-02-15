@@ -4,7 +4,6 @@ module "ec2" {
     webserver_instance_type = "t2.micro"
     webserver_key_name = "jenkins"
     webserver_subnetA = module.vpc.subnetA_id
-    webserver_sg_id = module.vpc.webserver_sg
 
 }
 
