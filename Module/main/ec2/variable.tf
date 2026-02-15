@@ -14,6 +14,6 @@ variable "webserver_subnetA" {
   
 }
 
-variable "webserver_sg_id" {
+variable "webserver_sg" {
   
 }
