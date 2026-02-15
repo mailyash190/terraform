@@ -3,7 +3,7 @@ module "ec2" {
     webserver_ami = "ami-019715e0d74f695be"
     webserver_instance_type = "t2.micro"
     webserver_key_name = "jenkins"
-    webserver_sg = module.sg.webserver_sg
+    webserver_sg = [module.sg.webserver_sg]
     webserver_subnetA = module.vpc.subnetA_id
 
 }
